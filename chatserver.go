@@ -43,6 +43,7 @@ func handle(conn net.Conn) {
 		messages <- newMessage(": "+input.Text(), conn)
 	}
 
+	//Delete client form map
 	delete(clients, conn.RemoteAddr().String())
 
 	leaving <- newMessage(" has left.", conn)
